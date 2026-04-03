@@ -74,7 +74,7 @@ def ingest_all(docs_dir="docs", chroma_path="chroma_db", rebuild=False):
     if rebuild:
         try:
             client.delete_collection("docs")
-            logging.info("🧹 Existing collection dropped (rebuild mode).")
+            logging.info("Existing collection dropped (rebuild mode).")
         except Exception:
             pass
 
@@ -93,7 +93,7 @@ def ingest_all(docs_dir="docs", chroma_path="chroma_db", rebuild=False):
             chunks = extract_pdf_chunks(path)
             all_chunks.extend(chunks)
         except Exception as e:
-            logging.error(f"❌ Failed to process {fname}: {e}")
+            logging.error(f"Failed to process {fname}: {e}")
 
     # Clean + filter texts before embedding
     texts = [str(c["text"]).strip() for c in all_chunks if c.get("text") and str(c["text"]).strip()]
@@ -101,7 +101,7 @@ def ingest_all(docs_dir="docs", chroma_path="chroma_db", rebuild=False):
     ids = [f"{m['source']}_p{m['page']}_c{m['chunk']}" for m in metadatas]
 
     if not texts:
-        logging.error("❌ No valid text chunks found after cleaning. Aborting.")
+        logging.error("No valid text chunks found after cleaning. Aborting.")
         return
 
     logging.info(f"Computing embeddings for {len(texts)} chunks...")
@@ -109,7 +109,7 @@ def ingest_all(docs_dir="docs", chroma_path="chroma_db", rebuild=False):
 
     # Add to Chroma
     collection.add(documents=texts, embeddings=embeddings.tolist(), metadatas=metadatas, ids=ids)
-    logging.info(f"✅ Ingestion complete! {len(texts)}/{len(texts)} chunks stored in collection 'docs'.")
+    logging.info(f" Ingestion complete {len(texts)}/{len(texts)} chunks stored in collection 'docs'.")
 
 # ----------------------------
 # CLI
