@@ -1,0 +1,161 @@
+text,intent
+"""What is reinforcement learning?""",AI_QUERY
+"""Explain transfer learning in AI.""",AI_QUERY
+"""What is backpropagation in neural networks?""",AI_QUERY
+"""Difference between supervised and unsupervised learning.""",AI_QUERY
+"""What is RAG in AI?""",AI_QUERY
+Explain GPT architecture.,AI_QUERY
+What is attention mechanism?,AI_QUERY
+Define natural language processing.,AI_QUERY
+What is semantic search?,AI_QUERY
+Explain convolutional neural networks.,AI_QUERY
+What is the difference between LSTM and GRU?,AI_QUERY
+What is fine-tuning in machine learning?,AI_QUERY
+Explain self-supervised learning.,AI_QUERY
+What is Q-learning?,AI_QUERY
+Define overfitting and underfitting.,AI_QUERY
+What is a transformer model?,AI_QUERY
+Explain embeddings in NLP.,AI_QUERY
+What is BERT used for?,AI_QUERY
+Define multi-modal AI.,AI_QUERY
+What is generative AI?,AI_QUERY
+Explain LoRA in fine-tuning.,AI_QUERY
+What is vector database in RAG?,AI_QUERY
+What is prompt engineering?,AI_QUERY
+"Difference between AI, ML, and DL.",AI_QUERY
+Explain reinforcement vs supervised learning.,AI_QUERY
+What is zero-shot learning?,AI_QUERY
+What is one-shot learning?,AI_QUERY
+Explain word2vec.,AI_QUERY
+What are embeddings in RAG?,AI_QUERY
+What is active learning in AI?,AI_QUERY
+Explain anomaly detection.,AI_QUERY
+What is reinforcement signal?,AI_QUERY
+What is few-shot learning?,AI_QUERY
+Explain graph neural networks.,AI_QUERY
+What is data augmentation?,AI_QUERY
+What is knowledge distillation?,AI_QUERY
+What is beam search in NLP?,AI_QUERY
+Explain temperature in LLMs.,AI_QUERY
+What is perplexity in language models?,AI_QUERY
+What is hybrid retrieval in RAG?,AI_QUERY
+What is health?,GENERAL_QUERY
+Who is the president of USA?,GENERAL_QUERY
+Capital of India?,GENERAL_QUERY
+What is the population of China?,GENERAL_QUERY
+Define democracy.,GENERAL_QUERY
+Who wrote Romeo and Juliet?,GENERAL_QUERY
+What is the tallest mountain?,GENERAL_QUERY
+Who discovered gravity?,GENERAL_QUERY
+What is the boiling point of water?,GENERAL_QUERY
+What is the national sport of Japan?,GENERAL_QUERY
+What is the speed of light?,GENERAL_QUERY
+Who painted the Mona Lisa?,GENERAL_QUERY
+When did World War 2 end?,GENERAL_QUERY
+What is the largest desert?,GENERAL_QUERY
+What is the currency of Japan?,GENERAL_QUERY
+Define photosynthesis.,GENERAL_QUERY
+What is the periodic table?,GENERAL_QUERY
+Who invented the telephone?,GENERAL_QUERY
+What is the capital of France?,GENERAL_QUERY
+What is the deepest ocean?,GENERAL_QUERY
+What is the freezing point of water?,GENERAL_QUERY
+Define ecosystem.,GENERAL_QUERY
+Who was Albert Einstein?,GENERAL_QUERY
+What is global warming?,GENERAL_QUERY
+What is the human heart?,GENERAL_QUERY
+What is the moon made of?,GENERAL_QUERY
+What is a volcano?,GENERAL_QUERY
+Who built the pyramids?,GENERAL_QUERY
+What is electricity?,GENERAL_QUERY
+What is the internet?,GENERAL_QUERY
+Define climate change.,GENERAL_QUERY
+What is gravity?,GENERAL_QUERY
+What is the human brain?,GENERAL_QUERY
+Who discovered penicillin?,GENERAL_QUERY
+What is the sun made of?,GENERAL_QUERY
+What is the national animal of India?,GENERAL_QUERY
+What is the Pacific Ocean?,GENERAL_QUERY
+What is the Milky Way?,GENERAL_QUERY
+Who was Isaac Newton?,GENERAL_QUERY
+What is the Great Wall of China?,GENERAL_QUERY
+What is 2+2?,MATH
+Solve 10*5.,MATH
+What is the square root of 64?,MATH
+Simplify 2x+3x.,MATH
+What is 12/4?,MATH
+Solve for x: 2x=10.,MATH
+What is 15% of 200?,MATH
+Find derivative of x^2.,MATH
+Integrate 2x dx.,MATH
+What is log base 10 of 100?,MATH
+What is sin(90)?,MATH
+What is cos(0)?,MATH
+What is tan(45)?,MATH
+What is 100-25?,MATH
+What is factorial of 5?,MATH
+Solve 3x+2=11.,MATH
+What is 9 squared?,MATH
+What is cube root of 27?,MATH
+What is 7*8?,MATH
+What is 1/2 + 3/4?,MATH
+What is 20% of 50?,MATH
+Find slope of y=2x+3.,MATH
+Differentiate sin(x).,MATH
+Integrate cos(x).,MATH
+What is ln(e)?,MATH
+What is 100/5?,MATH
+Solve for x: x^2=16.,MATH
+What is modulus of -5?,MATH
+What is 2^5?,MATH
+What is 10 choose 3?,MATH
+"What is mean of [2,4,6]?",MATH
+"What is median of [1,3,5]?",MATH
+"What is mode of [2,2,3,4]?",MATH
+What is variance formula?,MATH
+What is standard deviation?,MATH
+What is limit of 1/x as x→∞?,MATH
+What is probability of a coin flip?,MATH
+Solve quadratic: x^2-5x+6=0.,MATH
+What is Euler's number?,MATH
+What is pi value?,MATH
+"Hi, how are you?",CHITCHAT
+Good morning!,CHITCHAT
+You are doing great.,CHITCHAT
+Thanks a lot.,CHITCHAT
+Tell me a joke.,CHITCHAT
+How's your day?,CHITCHAT
+You are awesome.,CHITCHAT
+Nice to meet you.,CHITCHAT
+Can you be my friend?,CHITCHAT
+That's funny!,CHITCHAT
+You are helpful.,CHITCHAT
+I like you.,CHITCHAT
+Good evening.,CHITCHAT
+Good night.,CHITCHAT
+See you later.,CHITCHAT
+Well played!,CHITCHAT
+You are amazing.,CHITCHAT
+Haha that's cool.,CHITCHAT
+You're the best.,CHITCHAT
+Keep it up!,CHITCHAT
+Bravo!,CHITCHAT
+Good job.,CHITCHAT
+That’s nice.,CHITCHAT
+Tell me something funny.,CHITCHAT
+You are kind.,CHITCHAT
+That's interesting.,CHITCHAT
+Haha good one.,CHITCHAT
+You are so smart.,CHITCHAT
+I trust you.,CHITCHAT
+Stay safe.,CHITCHAT
+Take care.,CHITCHAT
+You rock!,CHITCHAT
+Excellent work.,CHITCHAT
+Haha lol.,CHITCHAT
+That’s awesome.,CHITCHAT
+You're brilliant.,CHITCHAT
+I admire you.,CHITCHAT
+Good work.,CHITCHAT
+That was cool.,CHITCHAT
+Thank you very much.,CHITCHAT
