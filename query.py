@@ -100,16 +100,16 @@ def call_local_llm(prompt: str, max_tokens: int = 512) -> str:
         return str(data)
     except Exception as e:
         logging.error("LLM call failed: %s", e)
-        return "⚠️ Error: could not generate response from local LLM."
+        return "Error: could not generate response from local LLM."
 
 # ---------- Intent classifier (Option B) ----------
 def load_intent_classifier(path: str, label_encoder_path: str):
     if os.path.exists(path) and os.path.exists(label_encoder_path):
-        logging.info("🔎 Loading intent classifier from %s", path)
+        logging.info("Loading intent classifier from %s", path)
         clf = joblib.load(path)
         le = joblib.load(label_encoder_path)
         return clf, le
-    logging.warning("⚠️ Intent classifier not found at %s — will use prototype fallback until you train one.", path)
+    logging.warning("Intent classifier not found at %s — will use prototype fallback until you train one.", path)
     return None, None
 
 # Prototype fallback (only used if classifier absent) - few-shot prototypes using SBERT
@@ -203,14 +203,14 @@ def mmr_select(query_emb: np.ndarray, candidate_embs: np.ndarray, candidate_idxs
 
 # ---------- Main pipeline ----------
 def main():
-    logging.info("🧠 Loading encoders...")
+    logging.info("Loading encoders...")
     embedder = SentenceTransformer(EMBED_MODEL)
 
     # load intent classifier (Option-B). Expect a sklearn-like classifier that accepts embeddings.
     clf, label_enc = load_intent_classifier(INTENT_CLASSIFIER_PATH, LABEL_ENCODER_PATH)
 
     # connect to chroma
-    logging.info("🗂️ Loading ChromaDB collection...")
+    logging.info("Loading ChromaDB collection...")
     client = chromadb.PersistentClient(path=CHROMA_PATH, settings=Settings(anonymized_telemetry=True))
     try:
         collection = client.get_collection(COLLECTION_NAME)
@@ -265,7 +265,7 @@ def main():
         else:
             intent, intent_conf = prototype_intent(embedder, query)
 
-        logging.info("📂 Intent: %s%s", intent, (f" (sim={intent_conf:.3f})" if intent_conf is not None else ""))
+        logging.info("Intent: %s%s", intent, (f" (sim={intent_conf:.3f})" if intent_conf is not None else ""))
 
         # chit-chat handling: keep it short and friendly
         if intent == "CHITCHAT":
@@ -276,10 +276,10 @@ def main():
             elif any(kw in lc for kw in ("thank", "thanks", "great", "nice", "good job", "well done", "you are doing")):
                 resp = "Thanks — glad it's helping! What would you like next?"
             else:
-                resp = "🙂 I'm here to help — ask me about your documents, AI topics, or coding."
-            print("\n💡 Answer:\n", resp)
-            print("\n📂 Source: none (chit-chat)")
-            print(f"\n⏱️ Took {now_s()-t0:.2f}s")
+                resp = "I'm here to help — ask me about your documents, AI topics, or coding."
+            print("\n Answer:\n", resp)
+            print("\n Source: none (chit-chat)")
+            print(f"\n Took {now_s()-t0:.2f}s")
             continue
 
         # Build expanded query for retrieval (alias expansion)
@@ -373,14 +373,14 @@ def main():
             # but allow keyword-preserve: if required aliases present in final chunks, accept
             if not confident:
                 if required_aliases_present(query, final_chunks):
-                    logging.info("⚡ Keyword-preserve: required alias found in final chunks -> accept despite lower score")
+                    logging.info(" Keyword-preserve: required alias found in final chunks -> accept despite lower score")
                     confident = True
 
         # If not confident but there are candidate chunks that directly contain query keywords (exact match), accept them
         if not confident and final_chunks:
             q_keywords = extract_keywords(query)
             if any(any(kw in (txt or "").lower() for txt in final_chunks) for kw in q_keywords):
-                logging.info("⚡ Exact keyword match present in retrieved chunks -> accept")
+                logging.info(" Exact keyword match present in retrieved chunks -> accept")
                 confident = True
 
         # Build prompt
@@ -407,22 +407,22 @@ def main():
                 })
             )
 
-            print("\n💡 Answer (from docs):\n", answer.strip())
-            print("\n📂 Source:", source_str or "unknown")
+            print("\n Answer (from docs):\n", answer.strip())
+            print("\n Source:", source_str or "unknown")
         else:
             # fallback general: answer with LLM without giving docs context
-            logging.info("⚡ Fallback: answering with general LLM (not confident in docs)")
+            logging.info(" Fallback: answering with general LLM (not confident in docs)")
             # For CODE intent we can hint code blocks
             if intent == "CODING":
                 prompt = f"You are a coding assistant. Provide a clean code example and brief explanation. Question: {query}"
             else:
                 prompt = f"Answer concisely and helpfully: {query}"
             answer = call_local_llm(prompt)
-            print("\n💡 Answer:\n", answer.strip())
-            print("\n📂 Source: none (general)")
+            print("\n Answer:\n", answer.strip())
+            print("\n Source: none (general)")
 
-        logging.info("⏱️ Took %.2fs", now_s() - t0)
-        print(f"\n⏱️ Took {now_s()-t0:.2f}s\n")
+        logging.info(" Took %.2fs", now_s() - t0)
+        print(f"\n Took {now_s()-t0:.2f}s\n")
 
 if __name__ == "__main__":
     main()
